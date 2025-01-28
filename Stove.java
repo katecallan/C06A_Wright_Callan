@@ -1,3 +1,6 @@
+// Authors: Avery Wright and Kate Callan
+
+
 import java.util.ArrayList;
 
 /**
@@ -38,7 +41,7 @@ public class Stove {
 			}
 		}
 		if (hotAlert) {
-			System.out.println("HOT BURNER ALERT!");
+			System.out.println("RED LIGHT - HOT BURNER ALERT!");
 		}
 	}
 	

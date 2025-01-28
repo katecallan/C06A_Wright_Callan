@@ -1,3 +1,4 @@
+// Authors: Avery Wright and Kate Callan
 
 public enum Setting {
     OFF("[---]"), LOW("[--+]"), MEDIUM("[-++]"), HIGH("[+++]");

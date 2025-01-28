@@ -1,3 +1,4 @@
+// Authors: Avery Wright and Kate Callan
 
 public class Burner {
     public enum Temperature {
