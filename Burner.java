@@ -1,29 +1,10 @@
-
-public class Burner {
-
-	// Temperature enumerated type and variable, with getter
+public class Burner{
 	
-	
-	
-	// Constructor
-	
-	
-	
-	// Plus button method and minus button method with switch statements
-	
-	
-	
-	// updateTemperature() method that correctly handles timer and increasing/decreasing temperature
-
-	
-	
-	// Display method
-
-	
-	
+	public enum Temperature { // Enum for temperature levels
+        BLAZING, HOT, WARM, COLD;
+    }
 	
 	
 	
 	
 }
-
