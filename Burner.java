@@ -78,6 +78,12 @@ public class Burner{
 	}
 
 
+	public void display() { // Display the burner's status
+        System.out.println(mySetting.toString() + " " + myTemperature);
+    }
+
+
+	
 
 
 }
