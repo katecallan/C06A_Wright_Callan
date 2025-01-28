@@ -1,89 +1,73 @@
-public class Burner{
 
-	public enum Temperature { // Enum for temperature levels
-		BLAZING, HOT, WARM, COLD;
-	}
-
-	public static final int TIME_DURATION = 2; // Constants and instance variables
-	private Temperature myTemperature;
-	private Setting mySetting;
-	private int timer;
-
-	public Burner() { // Constructor
-		this.myTemperature = Temperature.COLD;
-		this.mySetting = Setting.OFF;
-		this.timer = 0;
-	}
-
-
-	public Temperature getMyTemperature() {
-		return myTemperature;
-	}
-
-	public void plusButton() { // Increases the setting
-		switch (mySetting) {
-		case OFF:
-			mySetting = Setting.LOW;
-			break;
-		case LOW:
-			mySetting = Setting.MEDIUM;
-			break;
-		case MEDIUM:
-			mySetting = Setting.HIGH;
-			break;
-		case HIGH:
-			break;
-		}
-		timer = TIME_DURATION; // Resets timer
-	}
-
-
-	public void minusButton() { // Decreases the setting
-		switch (mySetting) {
-		case HIGH:
-			mySetting = Setting.MEDIUM;
-			break;
-		case MEDIUM:
-			mySetting = Setting.LOW;
-			break;
-		case LOW:
-			mySetting = Setting.OFF;
-			break;
-		case OFF:
-			break;
-		}
-		timer = TIME_DURATION; // Resets timer
-	}
-
-
-	public void updateTemperature() { // Updates the temperature
-		if (timer > 0) {
-			timer--;
-		} else {
-			switch (mySetting) {
-			case HIGH:
-				myTemperature = Temperature.BLAZING;
-				break;
-			case MEDIUM:
-				myTemperature = Temperature.HOT;
-				break;
-			case LOW:
-				myTemperature = Temperature.WARM;
-				break;
-			case OFF:
-				myTemperature = Temperature.COLD;
-				break;
-			}
-		}
-	}
-
-
-	public void display() { // Display the burner's status
-        System.out.println(mySetting.toString() + " " + myTemperature);
+public class Burner {
+    public enum Temperature {
+        BLAZING("VERY HOT! DON'T TOUCH"),
+        HOT("CAREFUL"),
+        WARM("warm"),
+        COLD("cooool");
+        
+        private String description;
+        
+        Temperature(String description) {
+            this.description = description;
+        }
+        
+        public String toString() {
+            return description;
+        }
     }
-
-
-	
-
-
+    
+    public static final int TIME_DURATION = 2;
+    private Temperature myTemperature;
+    private Setting mySetting;
+    private int timer;
+    
+    public Burner() {
+        myTemperature = Temperature.COLD;
+        mySetting = Setting.OFF;
+        timer = 0;
+    }
+    
+    public Temperature getMyTemperature() {
+        return myTemperature;
+    }
+    
+    public void plusButton() {
+        switch (mySetting) {
+            case OFF -> mySetting = Setting.LOW;
+            case LOW -> mySetting = Setting.MEDIUM;
+            case MEDIUM -> mySetting = Setting.HIGH;
+            case HIGH -> {} // No change
+        }
+        timer = TIME_DURATION;
+    }
+    
+    public void minusButton() {
+        switch (mySetting) {
+            case HIGH -> mySetting = Setting.MEDIUM;
+            case MEDIUM -> mySetting = Setting.LOW;
+            case LOW -> mySetting = Setting.OFF;
+            case OFF -> {} // No change
+        }
+        timer = TIME_DURATION;
+    }
+    
+    public void updateTemperature() {
+        if (timer > 0) {
+            timer--;
+        }
+        
+        if (timer == 0) {
+            switch (mySetting) {
+                case HIGH -> myTemperature = Temperature.BLAZING;
+                case MEDIUM -> myTemperature = Temperature.HOT;
+                case LOW -> myTemperature = Temperature.WARM;
+                case OFF -> myTemperature = Temperature.COLD;
+            }
+        }
+    }
+    
+    public void display() {
+        System.out.println(mySetting.toString() + "....." + myTemperature.toString());
+    }
 }
