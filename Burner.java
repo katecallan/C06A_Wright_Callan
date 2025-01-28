@@ -16,5 +16,27 @@ public class Burner{
 	}
 
 
+	public Temperature getMyTemperature() {
+        return myTemperature;
+    }
+
+    public void plusButton() { // Increases the setting
+        switch (mySetting) {
+            case OFF:
+                mySetting = Setting.LOW;
+                break;
+            case LOW:
+                mySetting = Setting.MEDIUM;
+                break;
+            case MEDIUM:
+                mySetting = Setting.HIGH;
+                break;
+            case HIGH:
+                break;
+        }
+        timer = TIME_DURATION; // Resets timer
+    }
+	
+	
 
 }
